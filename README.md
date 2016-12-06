@@ -23,8 +23,8 @@ Will create the following folder structure:
 │   │       test.bat<br>
 │<br>
 
-## Template
-By default, the scripts templates are the following:
+## Templates
+By default, the code templates are the following:
 ### C++ source code
 ```c++
 #include <bits/stdc++.h>
