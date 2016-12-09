@@ -35,19 +35,19 @@ def checkScripts():
     try:
         open("template.cpp", "r")
     except:
-        print ("Default template not found:\tcreating template.cpp")
+        print ("Default template not found:\tcreating template")
         createTemplate()
 
     try:
         open("compile."+scriptSuffix, "r")
     except:
-        print ("Default compile script not found:\tcreating compile.bat")
+        print ("Default compile script not found:\tcreating compile")
         createCompileScript()
 
     try:
         open("test."+scriptSuffix, "r")
     except:
-        print ("Default test script not found:\tcreating test.bat")
+        print ("Default test script not found:\tcreating test")
         createTestScript()
 
 def main():
@@ -61,9 +61,9 @@ def main():
                         help="Letter of last problem")
     parser.add_argument("--template", default="template.cpp", type=str,
                         help="Template file")
-    parser.add_argument("--compile", default="compile.bat", type=str,
+    parser.add_argument("--compile", default="compile."+scriptSuffix, type=str,
                         help="Compile script")
-    parser.add_argument("--test", default="test.bat", type=str,
+    parser.add_argument("--test", default="test."+scriptSuffix, type=str,
                         help="Test script")
     parser.add_argument("--prompt", default=False, type=bool,
                         help="Open a console prompt (Windows only)")
@@ -87,7 +87,7 @@ def main():
     except:
         ans = 'a'
         while not ans in ['y', 'n']:
-            ans = input("Destination folder already exists, do you want to overwrite it [y|n]")
+            ans = raw_input("Destination folder already exists, do you want to overwrite it [y|n] ")
             if ans == 'n':
                 exit()
             if ans == 'y':
