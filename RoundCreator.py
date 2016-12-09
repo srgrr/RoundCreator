@@ -1,4 +1,4 @@
-'''
+''' 
     (C) Sergio Rodriguez Guasch 2014-2016 <sergi9rr9r@gmail.com>
 '''
 import argparse
@@ -123,7 +123,10 @@ def main():
         shutil.copy(args.test, os.path.join(rootPath, "test."+scriptSuffix))
         open(os.path.join(rootPath, "input.txt"), 'w')
         open(os.path.join(rootPath, "output.txt"), 'w')
-        
+
+    os.remove(args.template)
+    os.remove(args.compile)
+    os.remove(args.test)
 
     print ("Done! Good luck and HAVE FUN!")
 
@@ -134,7 +137,8 @@ def main():
             os.system("start cmd /k")
 
     if args.kinder.lower() == 'malo':
-        os.startfile("https://youtu.be/Z_DyVES7c6w?t=59s")
+	import webbrowser
+        webbrowser.open("https://youtu.be/Z_DyVES7c6w?t=1m04s")
 
 if __name__ == "__main__":
     main()
