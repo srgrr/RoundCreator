@@ -35,19 +35,16 @@ def checkScripts():
     try:
         open("template.cpp", "r")
     except:
-        print ("Default template not found:\tcreating template")
         createTemplate()
 
     try:
         open("compile."+scriptSuffix, "r")
     except:
-        print ("Default compile script not found:\tcreating compile")
         createCompileScript()
 
     try:
         open("test."+scriptSuffix, "r")
     except:
-        print ("Default test script not found:\tcreating test")
         createTestScript()
 
 def main():
