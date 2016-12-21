@@ -27,12 +27,21 @@ Will create the following folder structure:
 By default, the code templates are the following:
 ### C++ source code
 ```c++
+/*
+    Author: YourName
+*/
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long int ll;
+typedef long double ld;
+typedef pair<int, int> ii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<bool> vb;
 
 int main() {
-    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
-
+    ios_base::sync_with_stdio(false); cin.tie(0);
 }
 ```
 ### Compile script
