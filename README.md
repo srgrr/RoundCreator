@@ -1,5 +1,6 @@
 # RoundCreator
-A very simple, small tool I developed some years ago. It creates a folder structure for programming contest problems.
+A very simple, small tool I developed some years ago. It creates a folder structure for programming contest problems. It works for Python 2.7 and Python 3.x.
+Due to the argparse dependency, it won't work on Python 2.6
 ## A simple example
 Let's suppose you are competing in a contest called "hardContest" which has two problems (a and b), then, the following command:<br>
 `python RoundCreator.py --name hardContest --amount 2`
