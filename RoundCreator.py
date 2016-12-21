@@ -39,7 +39,7 @@ def testScriptSource():
     if sys.platform.startswith("win"):
         s = "a.exe < input.txt\n"
     else:
-        s  = "!#/bin/bash\n"
+        s  = "#!/bin/bash\n"
         s += "./a.out < input.txt\n"
     return s
 
