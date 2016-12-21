@@ -108,7 +108,7 @@ def main():
     print("Done! Good luck and HAVE FUN!")
 
     if args.kinder.lower() == "malo":
-	import webbrowser
+        import webbrowser
         webbrowser.open("https://youtu.be/Z_DyVES7c6w?t=1m04s")
 
 if __name__ == "__main__":
