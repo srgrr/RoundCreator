@@ -14,13 +14,6 @@ else:
 def templateSource():
     s  = "#include <bits/stdc++.h>\n"
     s += "using namespace std;\n"
-    s += "typedef long long int ll;\n"
-    s += "typedef long double ld;\n"
-    s += "typedef pair<int, int> ii;\n"
-    s += "typedef pair<ll, ll> pll;\n"
-    s += "typedef vector<int> vi;\n"
-    s += "typedef vector<vi> vvi;\n"
-    s += "typedef vector<bool> vb;\n"
     s += "\n"
     s += "int main() {\n"
     s += "    ios_base::sync_with_stdio(false); cin.tie(0);\n\n"
