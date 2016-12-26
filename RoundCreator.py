@@ -49,7 +49,7 @@ def main():
     parser.add_argument("--single", default=False, type=str,
                         help="Folder for a single Problem?")
     parser.add_argument("--author", default="RoundCreatorUser", type=str,
-			help="Your name!")
+            help="Your name!")
 
 
     args = parser.parse_args()
@@ -68,14 +68,18 @@ def main():
     except:
         ans = "a"
         while not ans in ["y", "n"]:
-            ans = raw_input("Destination folder already exists, do you want to overwrite it [y|n] ").lower()
+            input_func = raw_input if sys.version_info[0] == 2 else input
+            ans = input_func("Destination folder already exists, do you want to overwrite it [y|n] ").lower()
             if ans == "n":
                 exit()
             if ans == "y":
                 shutil.rmtree(args.name)
                 os.makedirs(args.name)
 
-    template = "/*\n Author:    " + args.author + "\n*/\n" + templateSource()
+    if args.author != "RoundCreatorUser":
+        template = "/*\n Author:    " + args.author + "\n*/\n" + templateSource()
+    else:
+        template = templateSource()
     compiles = compileScriptSource()
     tests    = testScriptSource()
 
