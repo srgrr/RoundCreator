@@ -63,9 +63,7 @@ def main():
             raise argparse.ArgumentTypeError("Until must be in [a-zA-Z]!")
         problemCount = ord(until) - ord("a") + 1
 
-    try:
-        os.makedirs(args.name)
-    except:
+    if os.path.exists(args.name):
         ans = "a"
         while not ans in ["y", "n"]:
             input_func = raw_input if sys.version_info[0] == 2 else input
@@ -74,7 +72,7 @@ def main():
                 exit()
             if ans == "y":
                 shutil.rmtree(args.name)
-                os.makedirs(args.name)
+    os.makedirs(args.name)
 
     if args.author != "RoundCreatorUser":
         template = "/*\n Author:    " + args.author + "\n*/\n" + templateSource()
@@ -82,6 +80,9 @@ def main():
         template = templateSource()
     compiles = compileScriptSource()
     tests    = testScriptSource()
+
+    if args.amount == 1 or until == 'a':
+        args.single = True
 
     if not args.single:
         if problemCount > 26:
