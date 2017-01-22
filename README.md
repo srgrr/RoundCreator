@@ -3,7 +3,7 @@ A very simple, small tool I developed some years ago. It creates a folder struct
 Due to the argparse dependency, it won't work on Python 2.6
 ## A simple example
 Let's suppose you are competing in a contest called "hardContest" which has two problems (a and b), then, the following command:<br>
-`python RoundCreator.py --name hardContest --amount 2`
+`python -m RoundCreator --name hardContest --amount 2`
 
 
 Will create the following folder structure:
