@@ -8,21 +8,20 @@ Let's suppose you are competing in a contest called "hardContest" which has two 
 
 Will create the following folder structure:
 
-├───hardContest<br>
-│   ├───a<br>
-│   │       compile.bat<br>
-│   │       input.txt<br>
-│   │       main.cpp<br>
-│   │       output.txt<br>
-│   │       test.bat<br>
-│   │<br>
-│   └───b<br>
-│   │       compile.bat<br>
-│   │       input.txt<br>
-│   │       main.cpp<br>
-│   │       output.txt<br>
-│   │       test.bat<br>
-│<br>
+hardContest
+├── a
+│   ├── compile.sh
+│   ├── input.txt
+│   ├── main.cpp
+│   ├── output.txt
+│   └── test.sh
+└── b
+    ├── compile.sh
+    ├── input.txt
+    ├── main.cpp
+    ├── output.txt
+    └── test.sh
+
 
 ## Templates
 By default, the code templates are the following:
