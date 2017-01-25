@@ -1,5 +1,5 @@
 # RoundCreator
-A very simple, small tool I developed some years ago. It creates a folder structure for programming contest problems. It works for Python 2.7 and Python 3.x.
+A very simple, small tool I developed some years ago. It creates a folder structure for programming contest problems. It works for Python 2.7.
 Due to the argparse dependency, it won't work on Python 2.6. It works and creates appropriate scripts for Windows and Linux.
 
 ## Installation
@@ -36,7 +36,7 @@ hardContest<br>
 <br>
 
 ## Templates
-By default, the code templates are the following:
+The code templates are the following:
 ### C++ source code
 ```c++
 /*
