@@ -1,4 +1,5 @@
-from distutils.core import setup
+from setuptools import setup, Extension, find_packages
+
 setup(
   name = 'RoundCreator',
   packages = ['RoundCreator'],
@@ -23,5 +24,12 @@ setup(
     'Topic :: Software Development',
     'Topic :: Utilities'
   ],
+  entry_points = {
+    'console_scripts': [
+      'RoundCreator=RoundCreator.RoundCreator:main',
+      'roundcreator=RoundCreator.RoundCreator:main',
+      'round-creator=RoundCreator.RoundCreator:main'
+    ]
+  },
   url = 'https://github.com/srgrr/RoundCreator'
 )
