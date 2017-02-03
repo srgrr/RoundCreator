@@ -26,9 +26,7 @@ setup(
   ],
   entry_points = {
     'console_scripts': [
-      'RoundCreator=RoundCreator.RoundCreator:main',
-      'roundcreator=RoundCreator.RoundCreator:main',
-      'round-creator=RoundCreator.RoundCreator:main'
+      'RoundCreator=RoundCreator.RoundCreator:main'
     ]
   },
   url = 'https://github.com/srgrr/RoundCreator'
