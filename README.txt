@@ -1,7 +1,7 @@
 ----------
 RoundCreator
 ----------
-A very simple, small tool I developed some years ago. It creates a folder structure for programming contest problems. It works for Python 2.7 and Python 3.x.
+A very simple, small tool I developed some years ago. It creates a folder structure for programming contest problems. It works for Python 2.7 and Python 3.
 Due to the argparse dependency, it won't work on Python 2.6. It works and creates appropriate scripts for Windows and Linux.
 
 ----------
@@ -24,7 +24,7 @@ RoundCreator is a very typical script which accepts some arguments and then does
 A simple example
 ----------
 Let's suppose you are competing in a contest named "hardContest" which has two problems (a and b), then, the following command:
-python -m RoundCreator --name hardContest --amount 2
+RoundCreator --name hardContest --amount 2
 
 
 Will create the following folder structure:
