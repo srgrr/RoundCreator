@@ -1,4 +1,5 @@
 MANIFEST.in
+README.md
 setup.py
 RoundCreator/RoundCreator.py
 RoundCreator/__init__.py
