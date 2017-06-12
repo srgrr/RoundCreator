@@ -1,8 +1,9 @@
-''' 
+'''
     (C) Sergio Rodriguez Guasch 2014-2017 <sergi9rr9r@gmail.com>
 '''
 import argparse
 import shutil
+import wget
 import sys
 import os
 
@@ -12,12 +13,15 @@ else:
     scriptSuffix = "sh"
 
 def templateSource():
-    s  = "#include <bits/stdc++.h>\n"
-    s += "using namespace std;\n"
-    s += "\n"
-    s += "int main() {\n"
-    s += "  ios_base::sync_with_stdio(false); cin.tie(0);\n\n"
-    s += "}\n"
+    s = \
+"""#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(false); cin.tie(0);
+
+}
+"""
     return s
 
 def compileScriptSource():
@@ -25,7 +29,7 @@ def compileScriptSource():
         s = ""
     else:
         s = "#!/bin/bash\n"
-    s += "g++ main.cpp -Wall -O2 -DLOCAL -std=c++11\n"
+    s += "g++ main.cc -Wall -O2 -DLOCAL -std=c++11\n"
     return s
 
 def testScriptSource():
@@ -35,6 +39,21 @@ def testScriptSource():
         s  = "#!/bin/bash\n"
         s += "./a.out < input.txt\n"
     return s
+
+def hightailXMLConfig(contest_path):
+    ret = \
+"""<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>This is the configuration file for Hightail.</comment>
+<entry key="pathFromWorkingDirToExec">%%L/a.out</entry>
+<entry key="prependingCommand"/>
+<entry key="workingDirectory">%s</entry>
+<entry key="checkExistence">1</entry>
+</properties>
+"""%contest_path
+    return ret
+
 
 def main():
     parser = argparse.ArgumentParser(description="Creates a contest folder structure")
@@ -49,7 +68,9 @@ def main():
     parser.add_argument("--single", default=False, type=str,
                         help="Folder for a single Problem?")
     parser.add_argument("--author", default="RoundCreatorUser", type=str,
-            help="Your name!")
+                        help="Your name!")
+    parser.add_argument("--hightail", default=False, type=str,
+                        help="Use hightail?")
 
 
     args = parser.parse_args()
@@ -74,6 +95,10 @@ def main():
                 shutil.rmtree(args.name)
     os.makedirs(args.name)
 
+    if args.hightail:
+        cfgxml = hightailXMLConfig(os.path.join(os.getcwd(), args.name))
+        open(os.path.join(args.name,'hightail.config'), 'w').write(cfgxml)
+
     if args.author != "RoundCreatorUser":
         template = "/*\n Author:    " + args.author + "\n*/\n" + templateSource()
     else:
@@ -88,16 +113,16 @@ def main():
         if problemCount > 26:
             print("More than 26 problems. Switching to numbers...")
             problemNames = [str(x+1) for x in range(problemCount)]
-        else:        
+        else:
             problemNames = [chr(x + ord("a")) for x in range(problemCount)]
     else:
             problemNames = [""]
- 
+
     for problemName in problemNames:
         rootPath = os.path.join(args.name,problemName)
-        if not args.single: 
+        if not args.single:
             os.makedirs(rootPath)
-        open(os.path.join(rootPath, "main.cpp"), "w").write(template)
+        open(os.path.join(rootPath, "main.cc"), "w").write(template)
         open(os.path.join(rootPath, "compile."+scriptSuffix), "w").write(compiles)
         open(os.path.join(rootPath, "test."+scriptSuffix), "w").write(tests)
         open(os.path.join(rootPath, "input.txt"), "w")

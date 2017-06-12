@@ -3,9 +3,9 @@ from setuptools import setup, Extension, find_packages
 setup(
   name = 'RoundCreator',
   packages = ['RoundCreator'],
-  version = '1.1.2',
+  version = '1.2.0',
   description = 'A tool that creates a programming contest folder structure',
-  long_description=open('README.txt', 'r').read(),
+  long_description=open('README.md', 'r').read(),
   author = 'Sergio Rodriguez Guasch',
   author_email = 'sergio.r.g@yandex.com',
   classifiers= [
