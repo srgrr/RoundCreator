@@ -24,13 +24,13 @@ hardContest<br>
 ├── a<br>
 │   ├── compile.sh<br>
 │   ├── input.txt<br>
-│   ├── main.cpp<br>
+│   ├── main.cc<br>
 │   ├── output.txt<br>
 │   └── test.sh<br>
 └── b<br>
     ├── compile.sh<br>
     ├── input.txt<br>
-    ├── main.cpp<br>
+    ├── main.cc<br>
     ├── output.txt<br>
     └── test.sh<br>
 <br>
@@ -50,7 +50,7 @@ int main() {
 }
 ```
 ### Compile script
-`g++ main.cpp -Wall -O2 -DLOCAL -std=c++11`
+`g++ main.cc -Wall -O2 -DLOCAL -std=c++11`
 
 ### Test script
 Windows:<br>
