@@ -1,6 +1,7 @@
 build
 dist
 MANIFEST
+RoundCreator.egg-info
 *.pyc
 *.class
 *.o
