@@ -65,11 +65,11 @@ def main():
                         help="Letter of last problem")
     parser.add_argument("--kinder", default="bueno", type=str,
                         help="Kinder?")
-    parser.add_argument("--single", default=False, type=str,
+    parser.add_argument("--single", action="store_true",
                         help="Folder for a single Problem?")
     parser.add_argument("--author", default="RoundCreatorUser", type=str,
                         help="Your name!")
-    parser.add_argument("--hightail", default=False, type=str,
+    parser.add_argument("--hightail", action="store_true",
                         help="Use hightail?")
 
 
