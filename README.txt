@@ -17,9 +17,9 @@ RoundCreator is a very typical script which accepts some arguments and then does
 * --name Contest name. Its default value is "myContest"
 * --amount Number of problems. Its default value is 5
 * --until Letter of the last problem. Its default value is 'e' (which is equal to 5)
-* --single Type it plus a random char if you want a single problem. It will place the source and scripts in the contest folder. Its default value is False
+* --single Type it if you want a single problem. It will place the source and scripts in the contest folder. Its default value is False
 * --author Your name. If not specified, it won't appear in your source code template.
-
+* --hightail Type this if you want to have a hightail configuration file in your contest folder
 ----------
 A simple example
 ----------
