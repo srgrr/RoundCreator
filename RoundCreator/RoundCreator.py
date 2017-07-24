@@ -7,63 +7,34 @@ import wget
 import sys
 import os
 
-if sys.platform.startswith("win"):
-    scriptSuffix = "bat"
+if sys.platform.startswith('win'):
+    script_suffix = 'bat'
 else:
-    scriptSuffix = "sh"
-
-def template_source():
-    s = \
-'''#include <iostream>
-#include <vector>
-#include <set>
-#include <unordered_set>
-#include <map>
-#include <unordered_map>
-#include <algorithm>
-#include <cmath>
-#include <cstdlib>
-using namespace std;
-
-int main() {
-  ios_base::sync_with_stdio(false); cin.tie(0);
-
-}
-'''
-    return s
+    script_suffix = 'sh'
 
 def compile_script_source():
-    if sys.platform.startswith(''):
-        s = ''
-    else:
-        s = '#!/bin/bash\n'
-    s += 'g++ main.cc -Wall -O2 -DLOCAL -std=c++11\n'
-    return s
+    if sys.platform.startswith('win'):
+        import compile_win
+        return compile_win.source
+    import compile_linux
+    return compile_linux.source
 
 def test_script_source():
-    if sys.platform.startswith("win"):
-        s = 'a.exe < input.txt\n'
-    else:
-        s  = '#!/bin/bash\n'
-        s += './a.out < input.txt\n'
-    return s
+    if sys.platform.startswith('win'):
+        import test_win
+        return test_win.source
+    import test_linux
+    return test_linux.source
+
+def template_source():
+    import cpp_template
+    return cpp_template.source
 
 def hightail_XML_config(contest_path):
-    ret = \
-'''<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-<comment>This is the configuration file for Hightail.</comment>
-<entry key="pathFromWorkingDirToExec">%%L/a.out</entry>
-<entry key="prependingCommand"/>
-<entry key="workingDirectory">%s</entry>
-<entry key="checkExistence">1</entry>
-</properties>
-'''%contest_path
-    return ret
+    import hightail_config
+    return hightail_config.source
 
-
-def main():
+def parse_arguments():
     parser = argparse.ArgumentParser(description='Creates a contest folder structure')
     parser.add_argument('--name', default='myContest', type=str,
                         help='Contest name')
@@ -79,9 +50,11 @@ def main():
                         help='Your name!')
     parser.add_argument('--hightail', action='store_true',
                         help='Use hightail?')
+    return parser.parse_args()
 
 
-    args = parser.parse_args()
+def main():
+    args = parse_arguments()
 
     problem_count = args.amount
     until = args.until.lower()
@@ -116,6 +89,7 @@ def main():
 
     if args.amount == 1 or until == 'a':
         args.single = True
+        print('Even if not specified, Switching to single due to amount=1 and/or until=\'a\'...')
 
     if not args.single:
         if problem_count > 26:
@@ -131,8 +105,8 @@ def main():
         if not args.single:
             os.makedirs(root_path)
         open(os.path.join(root_path, 'main.cc'), 'w').write(template)
-        open(os.path.join(root_path, 'compile.'+scriptSuffix), 'w').write(compiles)
-        open(os.path.join(root_path, 'test.'+scriptSuffix), 'w').write(tests)
+        open(os.path.join(root_path, 'compile.'+script_suffix), 'w').write(compiles)
+        open(os.path.join(root_path, 'test.'+script_suffix), 'w').write(tests)
         open(os.path.join(root_path, 'input.txt'), 'w')
         open(os.path.join(root_path, 'output.txt'), 'w')
 
