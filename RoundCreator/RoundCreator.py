@@ -32,7 +32,7 @@ def template_source():
 
 def hightail_XML_config(contest_path):
     import hightail_config
-    return hightail_config.source
+    return hightail_config.source%contest_path
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Creates a contest folder structure')
@@ -55,7 +55,6 @@ def parse_arguments():
 
 def main():
     args = parse_arguments()
-
     problem_count = args.amount
     until = args.until.lower()
     if until != 'e':
@@ -89,7 +88,7 @@ def main():
 
     if args.amount == 1 or until == 'a':
         args.single = True
-        print('Even if not specified, Switching to single due to amount=1 and/or until=\'a\'...')
+        print('Switching to single due to amount=1 and/or until=\'a\'...')
 
     if not args.single:
         if problem_count > 26:
