@@ -1,2 +1,2 @@
-source = '''g++ main.cc -Wall -O2 -DLOCAL -std=c++11
+source = '''g++ main.cc -Wall -Wextra -pedantic -std=c++11 -O2 -Wshadow -Wformat=2
 '''
