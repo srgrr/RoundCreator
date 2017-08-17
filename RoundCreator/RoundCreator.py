@@ -127,6 +127,9 @@ def main():
         open(os.path.join(root_path, 'input.txt'), 'w')
         open(os.path.join(root_path, 'output.txt'), 'w')
 
+    if not sys.platform.startswith('win'):
+        os.system('cd %s; chmod 777 * -R'%args.name)
+
     print('Done! Good luck and HAVE FUN!')
 
     if args.kinder.lower() == 'malo':
