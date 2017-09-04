@@ -68,6 +68,8 @@ def parse_arguments():
                         help='Your name!')
     parser.add_argument('--hightail', action='store_true',
                         help='Use hightail?')
+    parser.add_argument('--command', default='No command',
+                        help='Command to execute after folder creation (inside contest folder)')
     return parser.parse_args()
 
 
@@ -135,6 +137,9 @@ def main():
     if args.kinder.lower() == 'malo':
         import webbrowser
         webbrowser.open('https://youtu.be/Z_DyVES7c6w?t=1m04s')
+
+    if args.command != 'No command':
+        os.system(args.command)
 
 if __name__ == '__main__':
     main()
