@@ -1,6 +1,10 @@
 source = '''#include <bits/stdc++.h>
 using namespace std;
 using ll = long long int;
+using vi = vector<int>;
+using vvi = vector<vi>;
+using vll = vector<ll>;
+using vvll = vector<vll>;
 
 int next_int() {
   int x;
@@ -21,7 +25,7 @@ double next_double() {
 }
 
 string next_string() {
-  static char buf[1000000];
+  static char buf[1000009];
   if(scanf("%s", buf) != 1) exit(1);
   return string(buf);
 }
