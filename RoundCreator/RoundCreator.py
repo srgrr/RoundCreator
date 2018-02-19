@@ -1,9 +1,8 @@
 '''
-    (C) Sergio Rodriguez Guasch 2014-2017 <sergi9rr9r@gmail.com>
+    (C) Sergio Rodriguez Guasch 2014-2018 <sergi9rr9r@gmail.com>
 '''
 import argparse
 import shutil
-import wget
 import sys
 import os
 
