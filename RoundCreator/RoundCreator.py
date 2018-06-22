@@ -1,5 +1,5 @@
 '''
-    (C) Sergio Rodriguez Guasch 2014-2018 <sergi9rr9r@gmail.com>
+    (C) Sergio Rodriguez Guasch 2014-2018 < sergio dot r dot guasch at gmail dot com >
 '''
 import argparse
 import shutil
