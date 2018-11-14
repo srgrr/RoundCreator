@@ -49,7 +49,7 @@ def hightail_XML_config(contest_path):
     import hightail_config
   except:
     import RoundCreator.hightail_config as hightail_config
-  return hightail_config.source%contest_path
+  return hightail_config.source % contest_path
 
 def parse_arguments():
   parser = argparse.ArgumentParser(description='Creates a contest folder structure')
@@ -128,7 +128,7 @@ def main(name, amount, until, kinder, single, author, hightail, command):
     open(os.path.join(root_path, 'output.txt'), 'w')
 
   if not sys.platform.startswith('win'):
-    os.system('cd %s; chmod 777 * -R'%name)
+    os.system('cd %s; chmod 777 * -R' % name)
 
   print('Done! Good luck and HAVE FUN!')
 
