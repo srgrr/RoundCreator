@@ -72,7 +72,7 @@ def parse_arguments():
   return parser.parse_args()
 
 
-def main(name, amount, until, kinder, single, author, hightail, command):
+def create_folder(name, amount, until, kinder, single, author, hightail, command):
   problem_count = amount
   until = until.lower()
   if until != 'e':
@@ -139,6 +139,7 @@ def main(name, amount, until, kinder, single, author, hightail, command):
   if command != 'No command':
     os.system(command)
 
-if __name__ == '__main__':
+
+def main():
   options = parse_arguments()
-  main(**vars(options))
+  create_folder(**vars(options))
