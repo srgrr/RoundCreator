@@ -3,7 +3,7 @@ from setuptools import setup, Extension, find_packages
 setup(
   name = 'RoundCreator',
   packages = ['RoundCreator'],
-  version = '1.6.1',
+  version = '2.0.1',
   description = 'A tool that creates a programming contest folder structure',
   long_description=open('README.md', 'r').read(),
   author = 'Sergio Rodriguez Guasch',

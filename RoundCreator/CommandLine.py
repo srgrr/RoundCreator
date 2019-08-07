@@ -4,8 +4,8 @@ class DEFAULTS:
   NAME    = "myContest"
   AMOUNT  = 5
   SINGLE  = False
-  AUTHOR  = None
-  COMMAND = None
+  AUTHOR  = "Da best coder!"
+  COMMAND = "chmod 777 * -R"
 
 def _get_parser():
   parser  =  ArgumentParser(
@@ -62,6 +62,7 @@ def _get_parser():
 
 def _check_name(name):
   import re
+  # This regex filters non-valid filenames in POSIX-compliant systems
   invalid_filename_regex = re.compile(r"[^-_.A-Za-z0-9]")
   if invalid_filename_regex.match(name):
     raise ArgumentTypeError("Name is not a valid file path (received %s)" % name)
