@@ -71,8 +71,6 @@ class TestCommandLine(unittest.TestCase):
 		self.assertEqual(options.author, "sergioRG")
 		self.assertEqual(options.command, "chmod 777 * -R")
 
-
-
 if __name__ == '__main__':
 	suite = unittest.TestLoader().loadTestsFromTestCase(TestCommandLine)
 	unittest.TextTestRunner(verbosity = 2).run(suite)

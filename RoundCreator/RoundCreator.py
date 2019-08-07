@@ -41,7 +41,7 @@ def create_contest(name, amount, single, author, command):
   create_folder(name)
   if not single:
     for i in range(amount):
-      problem_letter = chr(ord('a') + i)
+      problem_letter = chr(ord('a') + i) if amount <= 26 else str(i)
       problem_path = os.path.join(name, problem_letter)
       create_folder(problem_path)
       add_contents_to_folder(problem_path, author)  
