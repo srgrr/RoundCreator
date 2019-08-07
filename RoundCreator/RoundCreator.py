@@ -18,6 +18,8 @@ def create_folder(name):
     print("[WARNING]: Folder with name %s already exists" % name)
     if prompt_user_yn("Do you want to overwrite it? [y/n]"):
       shutil.rmtree(name)
+    else:
+      sys.exit(0)
   print("Creating directory %s" % name)
   os.mkdir(name)
 
