@@ -2,10 +2,10 @@
 Create a folder structure for programming contest problems. It is intended to work in Python 3 and in Linux environment, but that does not mean that it cannot work on other platforms such as Windows or MacOS.
 
 ## Installation
-If you have cloned this repo, you can type `python setup.py install --user`. This will install a package called "RoundCreator" will create a "RoundCreator" terminal command.
+If you have cloned this repo, you can type `python setup.py install --user`. This will install a package called "RoundCreator" and will create a "RoundCreator" terminal command.
 
 ## General overview
-RoundCreator accepts some arguments and then does some stuff. Its arguments (and its default values) are:
+RoundCreator accepts some command line arguments and then does some stuff. Its arguments (and its default values) are:
 * `--name` Contest name. Its default value is "myContest"
 * `--amount` Number of problems. Its default value is 5
 * `--single` Type it if you want a single problem. It will place the source and scripts in the contest folder. Overrides `--amount`
@@ -15,7 +15,6 @@ RoundCreator accepts some arguments and then does some stuff. Its arguments (and
 ## A simple example
 Let's suppose that you are competing in a contest called "hardContest" which has two problems (a and b), then, the following command:<br>
 `RoundCreator --name hardContest --amount 2`
-
 
 Will create the following folder structure:
 
