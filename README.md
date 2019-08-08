@@ -57,9 +57,6 @@ int main() {
 ### Compile script
 `g++ main.cc -Wall -Wextra -pedantic -std=c++14 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fstack-protector`
 
-### Test script
-`./a.out < input.txt`
-
 ### Running on Windows
 Since RoundCreator is written in Python you expect it to work in Windows too. However, there are two unadressed issues:
 * The compile script will have the sh extension
