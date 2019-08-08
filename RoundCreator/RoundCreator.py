@@ -1,6 +1,3 @@
-"""
-  (C) Sergio Rodriguez Guasch 2014-2019 < sergio dot r dot guasch at gmail dot com >
-"""
 import argparse
 import shutil
 import sys
