@@ -31,6 +31,32 @@ hardContest/
 2 directories, 4 files
 ```
 
+And, given that the default command changes the permissions of the whole folder structure, you should expect to see something similar to this when listing the files:
+
+```
+$ ls -ltRa
+.:
+total 16
+drwxrwxr-x 4 sergiorgs sergiorgs 4096 Aug  8 10:22 .
+drwxrwxr-x 3 sergiorgs sergiorgs 4096 Aug  8 10:22 ..
+drwxrwxrwx 2 sergiorgs sergiorgs 4096 Aug  8 10:22 a
+drwxrwxrwx 2 sergiorgs sergiorgs 4096 Aug  8 10:22 b
+
+./a:
+total 16
+drwxrwxrwx 2 sergiorgs sergiorgs 4096 Aug  8 10:22 .
+drwxrwxr-x 4 sergiorgs sergiorgs 4096 Aug  8 10:22 ..
+-rwxrwxrwx 1 sergiorgs sergiorgs  236 Aug  8 10:22 compile.sh
+-rwxrwxrwx 1 sergiorgs sergiorgs  342 Aug  8 10:22 main.cc
+
+./b:
+total 16
+drwxrwxrwx 2 sergiorgs sergiorgs 4096 Aug  8 10:22 .
+drwxrwxr-x 4 sergiorgs sergiorgs 4096 Aug  8 10:22 ..
+-rwxrwxrwx 1 sergiorgs sergiorgs  236 Aug  8 10:22 compile.sh
+-rwxrwxrwx 1 sergiorgs sergiorgs  342 Aug  8 10:22 main.cc
+```
+
 ## Templates
 The code templates are the following:
 ### C++ source code
@@ -58,7 +84,7 @@ int main() {
 `g++ main.cc -Wall -Wextra -pedantic -std=c++14 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fstack-protector`
 
 ### Running on Windows
-Since RoundCreator is written in Python you expect it to work in Windows too. However, there are two unadressed issues:
+Since RoundCreator is written in Python you should expect it to work in Windows too. However, there are two unadressed issues:
 * The compile script will have the sh extension
 * The `--command` flag defaults to a linux command
 These two issues can be addressed by using some sort of unix terminal in windows instead of `cmd.exe`
