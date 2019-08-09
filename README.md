@@ -1,8 +1,16 @@
 # RoundCreator
-Create a folder structure for programming contest problems. It is intended to work in Python 3 and in Linux environment, but that does not mean that it cannot work on other platforms such as Windows or MacOS.
+Create a folder structure for programming contest problems. It is intended to work in Python 3 and in Linux environments, but that does not mean that it cannot work on other platforms such as Windows or MacOS or other Python versions.
+
+What it can be guaranteed is that RoundCreator won't work in Python 2.6 due to the argparse dependency.
 
 ## Installation
-If you have cloned this repo, you can type `python setup.py install --user`. This will install a package called "RoundCreator" and will create a "RoundCreator" terminal command.
+If you have cloned this repo, you can type `python setup.py install`. This will install a package called "RoundCreator" and will create a "RoundCreator" terminal command.
+
+This package can also be installed with pip
+
+`pip install RoundCreator`
+
+You can check [libraries.io](https://libraries.io/pypi/RoundCreator) or [PyPI](https://pypi.org/project/RoundCreator) for the whole version history.
 
 ## General overview
 RoundCreator accepts some command line arguments and then does some stuff. Its arguments (and its default values) are:
@@ -87,4 +95,5 @@ int main() {
 Since RoundCreator is written in Python you should expect it to work in Windows too. However, there are two unadressed issues:
 * The compile script will have the sh extension
 * The `--command` flag defaults to a linux command
-These two issues can be addressed by using some sort of unix terminal in windows instead of `cmd.exe`
+* Many Windows coders use MinGW instead of gcc. The compile command may not work.
+These issues can be addressed by using some sort of unix terminal in windows instead of `cmd.exe` and gcc instead of MinGW.
