@@ -1,8 +1,3 @@
------------------
-|  **`Travis CI Status`**   |
-|-------------------|
-|[![Travis](https://img.shields.io/travis/srgrr/RoundCreator.svg)](https://travis-ci.org/srgrr/RoundCreator)|
-
 # RoundCreator
 Create a folder structure for programming contest problems. It is intended to work in Python 3 and in Linux environments, but that does not mean that it cannot work on other platforms such as Windows or MacOS or other Python versions.
 
