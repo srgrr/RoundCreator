@@ -2,15 +2,10 @@ language: python
 python:
     - "3.6"
 
-sudo: required
 
-branches:
-  only:
-    - master
 
 deploy:
   provider: script
-  script: ./deploy_pypi.sh
+  script: deploy_pypi.sh
   on:
     branch: master
-
