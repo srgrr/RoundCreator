@@ -1,0 +1,15 @@
+language: python
+install: skip
+
+sudo: required
+
+branches:
+  only:
+    - master
+
+deploy:
+  provider: script
+  script: ./deploy_pypi.sh
+  on:
+    branch: master
+
