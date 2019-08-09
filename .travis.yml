@@ -8,6 +8,7 @@ branches:
 
 before_install:
     - sudo apt-get install expect -y
+    - sudo pip install setuptools
 
 install:
     - sudo python3 setup.py install
