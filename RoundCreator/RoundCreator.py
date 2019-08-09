@@ -13,7 +13,8 @@ def prompt_user_yn(message):
 def create_folder(name):
   if os.path.exists(name):
     print("[WARNING]: Folder with name %s already exists" % name)
-    if prompt_user_yn("Do you want to overwrite it? [y/n]"):
+    if prompt_user_yn("Do you want to overwrite it? [y/n]") == "y":
+      print("Removing old directory %s and its contents..." % name)
       shutil.rmtree(name)
     else:
       sys.exit(0)
