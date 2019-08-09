@@ -1,5 +1,4 @@
 #!/bin/bash
-python3 setup.py install --user
 python3 TestRoundCreator/TestMain.py
 if [ "$?" = "0" ]; then
 	rm -rf dist

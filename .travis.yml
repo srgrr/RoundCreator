@@ -2,8 +2,15 @@ language: python
 python:
     - "3.6"
 
+branches:
+  only:
+  - master
+
+before_install:
+    - sudo apt-get install expect -y
+
+install:
+    - sudo python3 setup.py install
+
 deploy:
-  provider: script
-  script: deploy_pypi.sh
-  on:
-    branch: master
+    script: deploy_pypi.sh
