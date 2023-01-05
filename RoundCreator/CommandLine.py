@@ -5,8 +5,9 @@ class DEFAULTS:
     NAME = 'myContest'
     AMOUNT = 5
     SINGLE = False
-    AUTHOR = 'Da best coder!'
-    COMMAND = 'chmod 777 * -R'
+    AUTHOR = 'SomeGuy'
+    COMMAND = 'chmod -R 777 *'
+    USE_BITS = True
 
 
 def _get_parser():
@@ -60,6 +61,12 @@ def _get_parser():
         help='Command to execute after folder creation (inside contest folder)'
     )
 
+    # Use bits header?
+    parser.add_argument(
+      '--use-bits-header',
+      action='store_true',
+      help='Use bits/stdc++ instead of a list of most common CP headers'
+    )
     return parser
 
 

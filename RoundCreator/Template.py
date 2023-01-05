@@ -16,7 +16,7 @@ _CPP_SOURCE = """/*
 
     Author: ##AUTHOR##
 */
-#include <bits/stdc++.h>
+##HEADERS##
 using namespace std;
 using ll = long long int;
 using vi = vector<int>;

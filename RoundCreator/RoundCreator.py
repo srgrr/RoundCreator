@@ -29,16 +29,32 @@ def write_to_file(path, content):
         f.write(content)
 
 
-def add_contents_to_folder(name, author):
+def add_contents_to_folder(name, author, headers='#include <bits/stdc++.h>'):
     import RoundCreator.Template as T
-    cpp_template = T.CPP_TEMPLATE.apply({'##AUTHOR##': author})
+    cpp_template = T.CPP_TEMPLATE.apply({'##AUTHOR##': author, '##HEADERS##': headers})
     compile_script = T.COMPILE_TEMPLATE.apply()
 
     write_to_file(os.path.join(name, 'main.cc'), cpp_template)
     write_to_file(os.path.join(name, 'compile.sh'), compile_script)
 
 
-def create_contest(name, amount, single, author, command):
+EXHAUSTIVE_HEADERS = """#include <iostream>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_map>
+#include <unordered_set>
+#include <algorithm>
+#include <cassert>"""
+
+
+def determine_headers(use_bits_header):
+  if use_bits_header:
+    return '#include <bits/stdc++.h>'
+  return EXHAUSTIVE_HEADERS
+
+
+def create_contest(name, amount, single, author, command, use_bits_header):
     # Create root folder
     create_folder(name)
     if not single:
@@ -46,7 +62,7 @@ def create_contest(name, amount, single, author, command):
             problem_letter = chr(ord('a') + i) if amount <= 26 else str(i)
             problem_path = os.path.join(name, problem_letter)
             create_folder(problem_path)
-            add_contents_to_folder(problem_path, author)
+            add_contents_to_folder(problem_path, author, determine_headers(use_bits_header))
     else:
         add_contents_to_folder(name, author)
     os.system('cd %s; %s; cd -;' % (name, command))
