@@ -1,4 +1,4 @@
-import argparse
+import RoundCreator.CommandLine as CL
 import shutil
 import sys
 import os
@@ -14,13 +14,13 @@ def prompt_user_yn(message):
 
 def create_folder(name):
     if os.path.exists(name):
-        print('[WARNING]: Folder with name %s already exists' % name)
+        print(f'[WARNING]: Folder with name {name} already exists')
         if prompt_user_yn('Do you want to overwrite it? [y/n]') == 'y':
-            print('Removing old directory %s and its contents...' % name)
+            print(f'Removing old directory {name} and its contents...')
             shutil.rmtree(name)
         else:
             sys.exit(0)
-    print('Creating directory %s' % name)
+    print(f'Creating directory {name}')
     os.mkdir(name)
 
 
@@ -49,12 +49,12 @@ EXHAUSTIVE_HEADERS = """#include <iostream>
 
 
 def determine_headers(use_bits_header):
-  if use_bits_header:
-    return '#include <bits/stdc++.h>'
-  return EXHAUSTIVE_HEADERS
+    if use_bits_header:
+        return '#include <bits/stdc++.h>'
+    return EXHAUSTIVE_HEADERS
 
 
-def create_contest(name, amount, single, author, command, use_bits_header):
+def create_contest(name, amount, single, author, command, use_bits_header=False):
     # Create root folder
     create_folder(name)
     if not single:
@@ -65,11 +65,10 @@ def create_contest(name, amount, single, author, command, use_bits_header):
             add_contents_to_folder(problem_path, author, determine_headers(use_bits_header))
     else:
         add_contents_to_folder(name, author)
-    os.system('cd %s; %s; cd -;' % (name, command))
+    os.system(f'cd {name}; {command}; cd -;')
 
 
 def main():
-    import RoundCreator.CommandLine as CL
     options = CL.parse_arguments()
     create_contest(**vars(options))
 

@@ -8,10 +8,8 @@ from TestRoundCreator import TestRoundCreator
 
 def main():
     suite = unittest.TestLoader().loadTestsFromTestCase(TestCommandLine)
-    suite
-    .addTest(unittest.TestLoader().loadTestsFromTestCase(TestTemplate))
-    suite
-    .addTest(unittest.TestLoader().loadTestsFromTestCase(TestRoundCreator))
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestTemplate))
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestRoundCreator))
 
     success = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
 

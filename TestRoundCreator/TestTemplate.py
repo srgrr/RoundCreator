@@ -1,7 +1,5 @@
 import unittest
 import RoundCreator.Template as T
-import sys
-from argparse import ArgumentTypeError
 
 
 class TestTemplate(unittest.TestCase):

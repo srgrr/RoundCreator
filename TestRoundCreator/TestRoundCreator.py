@@ -1,6 +1,5 @@
 import unittest
 import RoundCreator.RoundCreator as RC
-import sys
 
 
 class TestRoundCreator(unittest.TestCase):

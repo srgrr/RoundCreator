@@ -83,7 +83,7 @@ def _check_name(name):
 def _check_amount(amount):
     if amount < 1:
         raise ArgumentTypeError(
-            'Amount is zero or negative (received %d)' % amount
+            f'Amount is zero or negative (received {amount})'
         )
 
 
@@ -94,8 +94,8 @@ def _check_author(author):
         if invalid_author_regex.match(author):
             raise ArgumentTypeError(
                 (
-                    'Author contains */, it may produce'
-                    ' an invalid code template (received %s)' % author
+                    f'Author contains */, it may produce'
+                    ' an invalid code template (received {author})'
                 )
             )
 
